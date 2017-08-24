@@ -17,10 +17,10 @@ class App extends Component {
   searchPerson(event){
 
     let b = event.target.value 
-
+    console.log(172)
     const g =  this.state.people.filter((val)=>{
-      return val.name === b || val.company === b || val.city === b || val.email === b 
-    })
+      return val.name === b || val.company === b || val.city === b || val.email === b || val.job_history.indexOf(b)!=-1
+    }) 
 
     g.length>0 ? this.setState({ people:g }):this.setState({ people:this.originalState })
     
