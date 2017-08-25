@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import text from './people.json';
 import { Input } from './Input';
-import { People } from './People'
+import { People } from './People';
+  'use strict';
 class App extends Component {
 
   constructor(props){
@@ -17,7 +18,7 @@ class App extends Component {
   searchPerson(event){
 
     let b = event.target.value 
-    console.log(172)
+    
     const g =  this.state.people.filter((val)=>{
       return val.name === b || val.company === b || val.city === b || val.email === b || val.job_history.indexOf(b)!=-1
     }) 
