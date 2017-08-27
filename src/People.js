@@ -3,8 +3,8 @@ import React from 'react';
 export const People = ({people}) => {
 
 	return (<div>
-		{ people.map(function(shuki,idx){
-			return <Person  key={idx} person={shuki}/>
+		{ people.map(function(p_obj,idx){
+			return <Person  key={idx} person={p_obj}/>
 			}) 
 		 }</div>)
 	
