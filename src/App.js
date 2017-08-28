@@ -13,17 +13,41 @@ class App extends Component {
       people:text,
     }
     this.originalState = this.state.people
+ 
   }
 
+  changeState(object) {
+    this.setState({
+      people:object,
+
+    })
+  }
   searchPerson(event){
 
     let b = event.target.value 
+    let foundState={};
     
-    const g =  this.state.people.filter((val)=>{
-      return val.name === b || val.company === b || val.city === b || val.email === b || val.job_history.indexOf(b)!=-1
-    }) 
+    if(b.length >3){
 
-    g.length>0 ? this.setState({ people:g }):this.setState({ people:this.originalState })
+      this.state.people.map(function(person){
+
+          Object.keys(person).map(function(key){
+        
+            if(person[key].includes(b)) {
+          
+                foundState = Object.assign(person);
+            } 
+        
+          })
+      })
+     
+    } 
+   
+    if(foundState['name']) {
+        this.changeState([foundState])
+    } else {
+        this.changeState(this.originalState)
+    }
     
   }
 
