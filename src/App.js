@@ -42,8 +42,8 @@ class App extends Component {
       })
      
     } 
-   
-    if(foundState['name']) {
+
+    if(Object.keys(foundState)[1]) {
         this.changeState([foundState])
     } else {
         this.changeState(this.originalState)
