@@ -28,20 +28,19 @@ class App extends Component {
     
     if(event.target.value.length >3){
 
-         this.state.people.map((person)=>{
+         this.state.people.map(function(person){
 
-          return  Object.keys(person).map((key)=>{
+            return   Object.keys(person).map((key)=>{
         
-            person[key].includes(event.target.value )? foundState =person :foundState= {};
-        
-          });
-      });
+                   if(person[key].includes(event.target.value )) {foundState =person} 
+            });
+      })
      
     } 
-  
-   Object.keys(foundState)[1]?  this.changeState([foundState]) :this.changeState(this.originalState);
+
+    Object.keys(foundState)[1] ? this.changeState([foundState]):this.changeState(this.originalState);
     
-  }
+    }
 
   render() {
    
