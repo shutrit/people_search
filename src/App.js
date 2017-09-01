@@ -15,7 +15,10 @@ class App extends Component {
     this.originalState = this.state.people
  
   }
-
+  verifyString(string){
+    //TODO add expressions 
+    return  string.length > 3;
+  }
   changeState(object) {
     this.setState({
       people:object,
@@ -26,9 +29,9 @@ class App extends Component {
 
     let foundState={};
     
-    if(event.target.value.length >3){
+    if(this.verifyString(event.target.value)){
 
-       this.state.people.filter(function(person){
+       this.state.people.filter((person)=>{
 
          return  Object.keys(person).filter((key)=>{
                   
