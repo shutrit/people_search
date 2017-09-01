@@ -34,7 +34,7 @@ class App extends Component {
         
                    if(person[key].includes(event.target.value )) {foundState =person} 
             });
-      })
+      });
      
     } 
 
