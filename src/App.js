@@ -4,9 +4,9 @@ import './App.css';
 import text from './people.json';
 import { Input } from './Input';
 import { People } from './People';
-  'use strict';
-class App extends Component {
 
+class App extends Component {
+    'use strict';
   constructor(props){
     super(props)
     this.state = {
@@ -24,30 +24,22 @@ class App extends Component {
   }
   searchPerson(event){
 
-    let b = event.target.value 
     let foundState={};
     
-    if(b.length >3){
+    if(event.target.value.length >3){
 
-      this.state.people.map(function(person){
+         this.state.people.map((person)=>{
 
-          Object.keys(person).map(function(key){
+          return  Object.keys(person).map((key)=>{
         
-            if(person[key].includes(b)) {
-          
-                foundState = Object.assign(person);
-            } 
+            person[key].includes(event.target.value )? foundState =person :foundState= {};
         
-          })
-      })
+          });
+      });
      
     } 
-
-    if(Object.keys(foundState)[1]) {
-        this.changeState([foundState])
-    } else {
-        this.changeState(this.originalState)
-    }
+  
+   Object.keys(foundState)[1]?  this.changeState([foundState]) :this.changeState(this.originalState);
     
   }
 
