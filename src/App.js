@@ -28,15 +28,17 @@ class App extends Component {
     
     if(event.target.value.length >3){
 
-         this.state.people.map(function(person){
+       this.state.people.filter(function(person){
 
-            return   Object.keys(person).map((key)=>{
-        
-                   if(person[key].includes(event.target.value )) {foundState =person} 
-            });
+         return  Object.keys(person).filter((key)=>{
+                  
+                 if(person[key].includes(event.target.value )) { foundState =person } 
+                    
+                  return person[key];
+                   });
       });
      
-    } 
+    }  
 
     Object.keys(foundState)[1] ? this.changeState([foundState]):this.changeState(this.originalState);
     
