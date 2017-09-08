@@ -29,7 +29,6 @@ class App extends Component {
     })
   }
   render() {
-   console.log(this.state.paintings)
     return (
       <div className="App">
          <div className="App-header">
