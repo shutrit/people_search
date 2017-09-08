@@ -39,8 +39,7 @@ class App extends Component {
           <div className="art-works">
           <Painting paintings={this.state.paintings} enterIT={this.getTit} leaveIT={this.empTit}/>
           </div>
-        
-      </div>
+        </div>
     );
   }
 }
