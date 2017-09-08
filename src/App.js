@@ -18,7 +18,6 @@ class App extends Component {
     this.empTit = this.empTit.bind(this)
   }
   getTit(event) {
- 
     this.setState({
       title:event.target.title
     })
