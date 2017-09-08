@@ -1,43 +1,45 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import text from './people.json';
-import { Input } from './Input';
-import { People } from './People';
-  'use strict';
-class App extends Component {
+import text from './paintings.json';
+import { Painting } from './Painting';
 
+
+class App extends Component {
+    'use strict';
   constructor(props){
     super(props)
     this.state = {
-      people:text,
+      paintings:text,
+      title:'Disasters in Blue'
     }
-    this.originalState = this.state.people
+    this.originalState = this.state.title
+    this.getTit = this.getTit.bind(this)
+    this.empTit = this.empTit.bind(this)
   }
-
-  searchPerson(event){
-
-    let b = event.target.value 
-    
-    const g =  this.state.people.filter((val)=>{
-      return val.name === b || val.company === b || val.city === b || val.email === b || val.job_history.indexOf(b)!=-1
-    }) 
-
-    g.length>0 ? this.setState({ people:g }):this.setState({ people:this.originalState })
-    
+  getTit(event) {
+ 
+    this.setState({
+      title:event.target.title
+    })
   }
-
+  empTit(event) {
+    this.setState({
+      title:this.originalState
+    })
+  }
   render() {
-   
+   console.log(this.state.paintings)
     return (
       <div className="App">
          <div className="App-header">
           <img src={logo} className="App-logo" alt="logo"/>
+          <h3>{this.state.title}</h3>
           </div>
-            <Input search={this.searchPerson.bind(this)}/>
-            <div className="people">
-            <People people={this.state.people}/>
-            </div>
+          <div className="art-works">
+          <Painting paintings={this.state.paintings} enterIT={this.getTit} leaveIT={this.empTit}/>
+          </div>
+        
       </div>
     );
   }
